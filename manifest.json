@@ -1,0 +1,41 @@
+{
+  "name": "Click2Sell",
+  "version": "0.0.4",
+  "manifest_version": 2,
+  "description": "Click 2 Sell extension.",
+  "homepage_url": "http://www.gilamran.com",
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://scan2sell-server.heroku.com/*",
+        "http://scan2sell-server.herokuapp.com//*",
+        "http://www.amazon.com/*",
+        "https://www.amazon.com/*"
+      ],
+      "js": [
+        "src/content/jquery.min.js",
+        "src/content/content-script.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "*://www.amazon.com/*"
+  ],
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "Click2Sell",
+    "default_popup": "src/popup/popup.html"
+  }
+}

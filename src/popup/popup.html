@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="popupApp">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="popup.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+	<!--bower-->
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+	<div id="mainPopup" ng-controller="popupMainController as vm" class="container">
+		<button id="sellButton" ng-if="vm.status=='none'" class="btn-primary" ng-click="vm.sellProductClicked()">Sell this product</button>
+		<h4 ng-if="vm.status=='loading'">Please wait...</h4>
+		<h4 ng-if="vm.status=='done'">Done!</h4>
+		<!--<h4>{{vm.currentASIN}}</h4>-->
+		<!--<h4>{{vm.createStatus}}</h4>-->
+	</div>
+
+	<!--my app-->
+	<script src="popupModule.js"></script>
+	<script src="popupController.js"></script>
+</body>
+</html>
+
+
+
